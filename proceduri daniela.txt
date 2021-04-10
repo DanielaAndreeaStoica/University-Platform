@@ -1,0 +1,38 @@
+-- determinare profesori cu activitatiile lor
+SELECT am.idProfesor, u.nume, u.prenume, a.denumire AS 'Denumire activitate'
+FROM activitati_materie am JOIN profesor p ON am.idProfesor = p.idProfesor
+						   JOIN utilizator u ON u.idUtilizator = p.idUtilizator
+                           JOIN activitate a ON a.tipActivitate = am.tipActivitate
+WHERE am.idMaterie = 1
+ORDER BY am.idProfesor;
+
+-- sa se afiseze toate grupurile de studiu la care studentul se poate inscrie (sa nu fie deja inscris)
+DROP PROCEDURE IF EXISTS sePoateInscrieInGrup;
+DELIMITER //
+CREATE PROCEDURE sePoateInscrieInGrup(idStud int)
+BEGIN
+	SELECT gs.idGrupStudiu, gs.denumireMaterie
+	FROM student s JOIN student_materie sm ON s.idStudent = sm.idStudent
+				   JOIN materie m ON m.idMaterie = sm.idMaterie
+				   JOIN grup_studiu gs ON gs.denumireMaterie = m.denumire
+	WHERE s.idStudent = idStud AND s.idStudent NOT IN (SELECT s.idStudent FROM grup_studiu_student gss JOIN grup_studiu gs ON gss.idGrupStudiu = gs.idGrupStudiu JOIN student s ON s.idStudent = gss.idStudent);
+END //
+DELIMITER ;
+
+CALL sePoateInscrieInGrup(2);
+
+
+-- sa se afiseze toti studentii de la o anumita materie
+DROP PROCEDURE IF EXISTS studentiMaterie;
+DELIMITER //
+CREATE PROCEDURE studentiMaterie(numeMaterie varchar(45))
+BEGIN
+	SELECT s.idStudent, u.nume, u.prenume, m.denumire
+    FROM materie m JOIN student_materie sm ON m.idMaterie = sm.idMaterie
+				   JOIN student s ON sm.idStudent = s.idStudent
+                   JOIN utilizator u ON s.idUtilizator = u.idUtilizator
+	WHERE m.denumire = numeMaterie and u.tipUtilizator = 'student';
+END //
+DELIMITER ;
+
+CALL studentiMaterie('POO');

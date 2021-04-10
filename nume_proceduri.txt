@@ -1,0 +1,53 @@
+I-Administrator
+1. Administratorii pot sa caute utilizatorii dupa nume si ii pot filtra dupa tip,
+2. pot asigna profesorii la cursuri
+3. si pot face cautare dupa numele cursului. La cautarea unui curs se afiseaza si numele profesorilor 
+de la acel curs // cod java //si un buton care permite vizualizarea tuturor studentilor inscrisi la cursul respectiv.
+
+II-studenti
+1. Studentii se pot inscrie la cursuri 
+2. //trigger//si sunt asignati profesorului cu cei mai putini studenti la data inscrierii.
+3. Studentii se pot inscrie la cursuri, 
+4. pot renunta la cursuri 
+5. si isi pot vedea notele
+6.Acestia trebuie sa aleaga activitatile la care vor sa participe si pot participa la ele 
+doar daca mai sunt locuri sau nu exista o suprapunere cu o alta activitate (de exemplu,
+studentul doreste sa participe la laboratorul de BD marti la ora 10. Se inscrie la acea
+activitate, iar inscrierea este valida doar daca nu are deja o alta activitate marti la 
+ora 10 sau daca mai sunt locuri disponibile. In caz contrar, se afiseaza un mesaj de eroare). //mai mult cod java//
+7. Totodata, studentii se pot inscrie in grupuri de studiu pentru o anumita materie, daca sunt inscrisi la
+materia respectiva.
+8.Pe grup, studentii pot adauga
+activitati si sa defineasca un numar minim de participanti si o perioada in care ceilalti studenti pot sa anunte
+participarea (de exemplu, un student adauga o activitate de aprofundare a cursului pentru data de 12.12.2020, ora 
+16:00, 2 ore, cu numar minim de participanti 5 si timp de expirare 2 ore). Daca numarul minim nu este atins,
+activitatea se anuleaza, iar studentii inscrisi la ea primesc un mesaj de informare. 
+
+III-profesori
+1. Profesorul stabileste din interfata grafica impartirea procentuala pe tipurile de activitati 
+(ex. 20% seminar, 35% laborator, 45%curs/examenul de la curs). 
+2.  Acestia(studentii) sunt evaluati cu note pentru fiecare tip de activitate si primesc o nota finala ca 
+medie ponderata intre tipurile de activitati.
+3. Ulterior, profesorul poate programa activitatile (curs, seminar,laborator, colocviu, examen) intr-un calendar, 
+pe zile si ore, specificand si numarul maxim de participanti. Activitatile pot fi programate doar in viitor.
+
+
+
+
+
+
+
+
+COD JAVA: buton aignare curs la profesor, profesorul alege din materii ce vrea sa predea, dupa isi alege activitatea
+	buton asignare materie la student, completare tabel materie_student
+	La logare, studentii si profesorii pot sa isi vada activitatile din ziua curenta sau pot accesa o pagina cu
+toate activitatile la care sunt asignati / inscrisi.
+	II 7 Acestia pot sa vada toti membrii grupului si sa lase mesaje.
+
+
+
+
+
+
+
+
